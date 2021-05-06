@@ -74,10 +74,10 @@ public class Main extends Application {
         //left side options vbox
         VBox leftMenu=new VBox(10);
         //reset button
-        Button B1=new Button("Reset\nBoard");
-        B1.setFont(Font.font("Arial", null, FontPosture.ITALIC,30));
-        B1.setTextFill(Color.PALEVIOLETRED);
-        B1.setOnAction(e->{
+        Button buttonResetGame=new Button("Reset\nBoard");
+        buttonResetGame.setFont(Font.font("Arial", null, FontPosture.ITALIC,30));
+        buttonResetGame.setTextFill(Color.PALEVIOLETRED);
+        buttonResetGame.setOnAction(e->{
             TicTacToe reset=new TicTacToe(gameRec);
             for(int i =0;i<3;i++){gameRec.set(i, Arrays.asList(9,9,9));}
             reset.wipeBoard(gc);
@@ -86,14 +86,14 @@ public class Main extends Application {
             reset.whoseTurn(TurnOX,gc);
             reset.displayScores(scoreBoard,gc);
             Box resetPrompt=new Box();
-            resetPrompt.display("Game Restarted", " GAME RESET COMPLETE\n               ENJOY!!");
+            resetPrompt.display("Game Restarted", " GAME RESET COMPLETE!");
 
         });
         // Score reset
-        Button B2=new Button("Reset\nScores");
-        B2.setFont(Font.font("Arial", null, FontPosture.ITALIC,30));
-        B2.setTextFill(Color.HOTPINK);
-        B2.setOnAction(e->{
+        Button buttonResetScores=new Button("Reset\nScores");
+        buttonResetScores.setFont(Font.font("Arial", null, FontPosture.ITALIC,30));
+        buttonResetScores.setTextFill(Color.HOTPINK);
+        buttonResetScores.setOnAction(e->{
             TicTacToe reset=new TicTacToe(gameRec);
             reset.wipeBoard(gc);
             reset.displayBoard(gc);
@@ -114,7 +114,7 @@ public class Main extends Application {
         gc.setLineWidth(14);
         gc.strokeRect(0,0,500,500);
         //adding childrens
-        leftMenu.getChildren().addAll(B1,B2);
+        leftMenu.getChildren().addAll(buttonResetGame,buttonResetScores);
         secondary.getChildren().addAll(leftMenu,canvas);
 
         MBox.getChildren().addAll(head,secondary);
